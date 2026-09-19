@@ -14,7 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -26,8 +26,7 @@ import ru.urfu.droidpractice1.ui.theme.DroidPractice1Theme
 
 @Composable
 fun MainActivityScreen(onShareArticle: () -> Unit) {
-    var likes by rememberSaveable { mutableIntStateOf(0) }
-    var dislikes by rememberSaveable { mutableIntStateOf(0) }
+    var vote by rememberSaveable { mutableStateOf(ArticleVote.NONE) }
 
     DroidPractice1Theme {
         Scaffold(
@@ -46,10 +45,8 @@ fun MainActivityScreen(onShareArticle: () -> Unit) {
             ) {
                 ArticleContent()
                 ArticleActions(
-                    likes = likes,
-                    dislikes = dislikes,
-                    onLike = { likes++ },
-                    onDislike = { dislikes++ },
+                    vote = vote,
+                    onVoteChange = { vote = it },
                     onShareArticle = onShareArticle
                 )
             }

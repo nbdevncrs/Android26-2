@@ -14,6 +14,7 @@
     <string name="article_tiebreak_note">Тай-брейк заслуживает отдельного разбора: там очки считают по порядку, а подача меняется по особой схеме. Именно об этом будет следующая статья.</string>
     <string name="share_article">Поделиться статьёй</string>
     <string name="share_chooser_title">Поделиться через</string>
-    <string name="likes_count">Лайки: %1$d</string>
-    <string name="dislikes_count">Дизлайки: %1$d</string>
+    <string name="like_article">Лайк</string>
+    <string name="dislike_article">Дизлайк</string>
+    <string name="reaction_count">%1$d</string>
 </resources>
