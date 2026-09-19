@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">DroidPractice1</string>
-    <string name="article_title">Теннис: правила счёта</string>
+    <string name="article_title">Статья 1 из 2</string>
+    <string name="article_category">ПРАВИЛА ТЕННИСА</string>
     <string name="article_headline">Как устроен теннисный матч</string>
     <string name="article_intro">От одного розыгрыша до победы в матче: разбираемся, как очки складываются в геймы, геймы — в сеты, а сеты — в итоговый результат.</string>
     <string name="article_image_description">Два игрока разыгрывают мяч на теннисном корте</string>
@@ -17,11 +18,12 @@
     <string name="like_article">Лайк</string>
     <string name="dislike_article">Дизлайк</string>
     <string name="reaction_count">%1$d</string>
-    <string name="related_article_label">Продолжение темы</string>
-    <string name="open_second_article">Как работает тай-брейк</string>
-    <string name="related_article_read">Статья прочитана</string>
-    <string name="related_article_not_read">Статья ещё не прочитана</string>
-    <string name="second_article_toolbar_title">Тай-брейк</string>
+    <string name="related_article_label">СЛЕДУЮЩАЯ СТАТЬЯ</string>
+    <string name="related_article_summary">Что происходит при 6:6, как считают очки и кто подаёт.</string>
+    <string name="open_second_article">Читать статью →</string>
+    <string name="related_article_read">Прочитано</string>
+    <string name="related_article_not_read">Не прочитано</string>
+    <string name="second_article_toolbar_title">Статья 2 из 2</string>
     <string name="navigate_back">Назад</string>
     <string name="second_article_headline">Тай-брейк: решающий гейм сета</string>
     <string name="second_article_intro">Когда соперники не могут оторваться друг от друга в счёте по геймам, исход сета нередко решает тай-брейк. Здесь важен каждый розыгрыш.</string>

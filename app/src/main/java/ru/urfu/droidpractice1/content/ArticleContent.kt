@@ -21,8 +21,13 @@ import ru.urfu.droidpractice1.R
 internal fun ArticleContent() {
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         Text(
+            text = stringResource(R.string.article_category),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary
+        )
+        Text(
             text = stringResource(R.string.article_headline),
-            style = MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold
         )
         Text(
