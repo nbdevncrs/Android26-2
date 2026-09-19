@@ -25,7 +25,11 @@ import ru.urfu.droidpractice1.R
 import ru.urfu.droidpractice1.ui.theme.DroidPractice1Theme
 
 @Composable
-fun MainActivityScreen(onShareArticle: () -> Unit) {
+fun MainActivityScreen(
+    isSecondArticleRead: Boolean,
+    onShareArticle: () -> Unit,
+    onOpenSecondArticle: () -> Unit
+) {
     var vote by rememberSaveable { mutableStateOf(ArticleVote.NONE) }
 
     DroidPractice1Theme {
@@ -49,6 +53,10 @@ fun MainActivityScreen(onShareArticle: () -> Unit) {
                     onVoteChange = { vote = it },
                     onShareArticle = onShareArticle
                 )
+                RelatedArticleLink(
+                    isRead = isSecondArticleRead,
+                    onOpen = onOpenSecondArticle
+                )
             }
         }
     }
@@ -57,5 +65,9 @@ fun MainActivityScreen(onShareArticle: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 private fun MainScreenPreview() {
-    MainActivityScreen(onShareArticle = {})
+    MainActivityScreen(
+        isSecondArticleRead = false,
+        onShareArticle = {},
+        onOpenSecondArticle = {}
+    )
 }

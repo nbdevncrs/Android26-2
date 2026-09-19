@@ -17,4 +17,21 @@
     <string name="like_article">Лайк</string>
     <string name="dislike_article">Дизлайк</string>
     <string name="reaction_count">%1$d</string>
+    <string name="related_article_label">Продолжение темы</string>
+    <string name="open_second_article">Как работает тай-брейк</string>
+    <string name="related_article_read">Статья прочитана</string>
+    <string name="related_article_not_read">Статья ещё не прочитана</string>
+    <string name="second_article_toolbar_title">Тай-брейк</string>
+    <string name="navigate_back">Назад</string>
+    <string name="second_article_headline">Тай-брейк: решающий гейм сета</string>
+    <string name="second_article_intro">Когда соперники не могут оторваться друг от друга в счёте по геймам, исход сета нередко решает тай-брейк. Здесь важен каждый розыгрыш.</string>
+    <string name="second_article_image_description">Игрок подаёт мяч во время теннисного матча</string>
+    <string name="second_article_image_caption">На тай-брейке порядок подачи отличается от обычного гейма.</string>
+    <string name="second_article_section_when">Когда он начинается?</string>
+    <string name="second_article_when_text">В распространённом формате тай-брейк играют при счёте 6:6 по геймам. Он заменяет следующий обычный гейм и определяет победителя сета. В отдельных турнирах, особенно в решающем сете, правила могут отличаться.</string>
+    <string name="second_article_section_score">Как считают очки?</string>
+    <string name="second_article_score_text">Очки идут подряд: 1, 2, 3 и так далее. Обычно побеждает тот, кто первым набрал не меньше семи очков с разницей минимум в два. При 6:6 розыгрыши продолжаются до счёта 8:6, 9:7 или другого результата с нужным отрывом.</string>
+    <string name="second_article_section_serve">Кто подаёт?</string>
+    <string name="second_article_serve_text">Первый игрок подаёт одно очко. Затем соперник подаёт два очка, и дальше подача меняется через каждые два розыгрыша. Игроки также меняются сторонами после каждых шести сыгранных очков. Так условия матча остаются более равными.</string>
+    <string name="second_article_read_switch">Прочитано</string>
 </resources>
