@@ -9,30 +9,33 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.urfu.droidpractice1.R
+import ru.urfu.droidpractice1.model.ArticleVote
 import ru.urfu.droidpractice1.ui.theme.DroidPractice1Theme
 
 @Composable
 fun MainActivityScreen(
+    vote: ArticleVote,
+    onVoteChange: (ArticleVote) -> Unit,
+    isFirstArticleRead: Boolean,
+    onFirstArticleReadChange: (Boolean) -> Unit,
     isSecondArticleRead: Boolean,
+    onNavigateBack: () -> Unit,
     onShareArticle: () -> Unit,
     onOpenSecondArticle: () -> Unit
 ) {
-    var vote by rememberSaveable { mutableStateOf(ArticleVote.NONE) }
-
     DroidPractice1Theme {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
@@ -44,6 +47,14 @@ fun MainActivityScreen(
                             style = MaterialTheme.typography.titleSmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onNavigateBack) {
+                            Icon(
+                                painter = painterResource(R.drawable.arrow_back),
+                                contentDescription = stringResource(R.string.navigate_back)
+                            )
+                        }
                     }
                 )
             }
@@ -59,7 +70,9 @@ fun MainActivityScreen(
                 ArticleContent()
                 ArticleActions(
                     vote = vote,
-                    onVoteChange = { vote = it },
+                    onVoteChange = onVoteChange,
+                    isRead = isFirstArticleRead,
+                    onReadChange = onFirstArticleReadChange,
                     onShareArticle = onShareArticle
                 )
                 RelatedArticleLink(
@@ -75,7 +88,12 @@ fun MainActivityScreen(
 @Composable
 private fun MainScreenPreview() {
     MainActivityScreen(
+        vote = ArticleVote.NONE,
+        onVoteChange = {},
+        isFirstArticleRead = false,
+        onFirstArticleReadChange = {},
         isSecondArticleRead = false,
+        onNavigateBack = {},
         onShareArticle = {},
         onOpenSecondArticle = {}
     )

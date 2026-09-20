@@ -1,7 +1,17 @@
 <resources>
-    <string name="app_name">DroidPractice1</string>
+    <string name="app_name">Теннис просто</string>
+    <string name="home_eyebrow">ПУТЕВОДИТЕЛЬ ПО ТЕННИСУ</string>
+    <string name="home_headline">Теннис без сложных слов</string>
+    <string name="home_intro">Две короткие статьи помогут разобраться в счёте матча и решающем тай-брейке.</string>
+    <string name="home_articles_label">СТАТЬИ</string>
+    <string name="home_first_article_label">01 / ОСНОВЫ</string>
+    <string name="home_second_article_label">02 / ПРОДОЛЖЕНИЕ</string>
+    <string name="home_first_summary">Очки, геймы и сеты: с чего начинается счёт.</string>
+    <string name="home_second_summary">Что происходит при 6:6 и кто подаёт в решающем гейме.</string>
+    <string name="home_open_article">Читать статью →</string>
+    <string name="first_article_name">Правила тенниса</string>
+    <string name="second_article_name">Тай-брейк</string>
     <string name="article_title">Статья 1 из 2</string>
-    <string name="article_category">ПРАВИЛА ТЕННИСА</string>
     <string name="article_headline">Как устроен теннисный матч</string>
     <string name="article_intro">От одного розыгрыша до победы в матче: разбираемся, как очки складываются в геймы, геймы — в сеты, а сеты — в итоговый результат.</string>
     <string name="article_image_description">Два игрока разыгрывают мяч на теннисном корте</string>
@@ -18,6 +28,8 @@
     <string name="like_article">Лайк</string>
     <string name="dislike_article">Дизлайк</string>
     <string name="reaction_count">%1$d</string>
+    <string name="article_reactions_label">Оценка статьи</string>
+    <string name="article_read_switch">Прочитано</string>
     <string name="related_article_label">СЛЕДУЮЩАЯ СТАТЬЯ</string>
     <string name="related_article_summary">Что происходит при 6:6, как считают очки и кто подаёт.</string>
     <string name="open_second_article">Читать статью →</string>
@@ -35,5 +47,4 @@
     <string name="second_article_score_text">Очки идут подряд: 1, 2, 3 и так далее. Обычно побеждает тот, кто первым набрал не меньше семи очков с разницей минимум в два. При 6:6 розыгрыши продолжаются до счёта 8:6, 9:7 или другого результата с нужным отрывом.</string>
     <string name="second_article_section_serve">Кто подаёт?</string>
     <string name="second_article_serve_text">Первый игрок подаёт одно очко. Затем соперник подаёт два очка, и дальше подача меняется через каждые два розыгрыша. Игроки также меняются сторонами после каждых шести сыгранных очков. Так условия матча остаются более равными.</string>
-    <string name="second_article_read_switch">Прочитано</string>
 </resources>

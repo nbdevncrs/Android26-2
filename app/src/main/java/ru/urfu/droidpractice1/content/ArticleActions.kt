@@ -8,25 +8,24 @@ import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.urfu.droidpractice1.R
-
-internal enum class ArticleVote { NONE, LIKE, DISLIKE }
-
-private val likeColor = Color(0xFF2E7D32)
-private val dislikeColor = Color(0xFFC62828)
+import ru.urfu.droidpractice1.model.ArticleVote
 
 @Composable
 internal fun ArticleActions(
     vote: ArticleVote,
     onVoteChange: (ArticleVote) -> Unit,
+    isRead: Boolean,
+    onReadChange: (Boolean) -> Unit,
     onShareArticle: () -> Unit
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
@@ -36,6 +35,10 @@ internal fun ArticleActions(
         ) {
             Text(stringResource(R.string.share_article))
         }
+        Text(
+            text = stringResource(R.string.article_reactions_label),
+            style = MaterialTheme.typography.titleSmall
+        )
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
@@ -43,14 +46,14 @@ internal fun ArticleActions(
             Row {
                 IconToggleButton(
                     checked = vote == ArticleVote.LIKE,
-                    onCheckedChange = { checked ->
-                        onVoteChange(if (checked) ArticleVote.LIKE else ArticleVote.NONE)
+                    onCheckedChange = {
+                        onVoteChange(vote.toggled(ArticleVote.LIKE))
                     }
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.thumb_up),
                         contentDescription = stringResource(R.string.like_article),
-                        tint = if (vote == ArticleVote.LIKE) likeColor
+                        tint = if (vote == ArticleVote.LIKE) colorResource(R.color.reaction_like)
                         else MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
@@ -62,14 +65,14 @@ internal fun ArticleActions(
             Row {
                 IconToggleButton(
                     checked = vote == ArticleVote.DISLIKE,
-                    onCheckedChange = { checked ->
-                        onVoteChange(if (checked) ArticleVote.DISLIKE else ArticleVote.NONE)
+                    onCheckedChange = {
+                        onVoteChange(vote.toggled(ArticleVote.DISLIKE))
                     }
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.thumb_down),
                         contentDescription = stringResource(R.string.dislike_article),
-                        tint = if (vote == ArticleVote.DISLIKE) dislikeColor
+                        tint = if (vote == ArticleVote.DISLIKE) colorResource(R.color.reaction_dislike)
                         else MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
@@ -78,6 +81,17 @@ internal fun ArticleActions(
                     modifier = Modifier.align(Alignment.CenterVertically)
                 )
             }
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = stringResource(R.string.article_read_switch),
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.weight(1f)
+            )
+            Switch(checked = isRead, onCheckedChange = onReadChange)
         }
     }
 }
