@@ -11,4 +11,7 @@
     <color name="article_accent">#2E6F9E</color>
     <color name="reaction_like">#2E7D32</color>
     <color name="reaction_dislike">#C62828</color>
+    <color name="article_actions_outline">#D9DDE8</color>
+    <color name="article_text_primary">#30323B</color>
+    <color name="article_text_secondary">#4E5E8B</color>
 </resources>

@@ -29,12 +29,13 @@ internal fun ArticleContent() {
         Text(
             text = stringResource(R.string.article_headline),
             style = MaterialTheme.typography.headlineLarge,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            color = colorResource(R.color.article_text_primary)
         )
         Text(
             text = stringResource(R.string.article_intro),
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            color = colorResource(R.color.article_text_secondary)
         )
         AsyncImage(
             model = R.drawable.tennis_match,
@@ -47,7 +48,7 @@ internal fun ArticleContent() {
         Text(
             text = stringResource(R.string.article_image_caption),
             style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            color = colorResource(R.color.article_text_secondary)
         )
         ArticleSection(R.string.article_section_game, R.string.article_game_text)
         ArticleSection(R.string.article_section_set, R.string.article_set_text)
@@ -56,7 +57,7 @@ internal fun ArticleContent() {
         Text(
             text = stringResource(R.string.article_tiebreak_note),
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.primary
+            color = colorResource(R.color.article_text_primary)
         )
     }
 }
@@ -67,11 +68,13 @@ private fun ArticleSection(@StringRes title: Int, @StringRes body: Int) {
         Text(
             text = stringResource(title),
             style = MaterialTheme.typography.titleLarge,
-            fontWeight = FontWeight.SemiBold
+            fontWeight = FontWeight.SemiBold,
+            color = colorResource(R.color.article_text_primary)
         )
         Text(
             text = stringResource(body),
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyLarge,
+            color = colorResource(R.color.article_text_primary)
         )
     }
 }

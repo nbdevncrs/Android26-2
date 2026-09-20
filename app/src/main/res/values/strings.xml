@@ -29,6 +29,7 @@
     <string name="dislike_article">Дизлайк</string>
     <string name="reaction_count">%1$d</string>
     <string name="article_reactions_label">Оценка статьи</string>
+    <string name="after_reading_title">После прочтения</string>
     <string name="article_read_switch">Прочитано</string>
     <string name="related_article_label">СЛЕДУЮЩАЯ СТАТЬЯ</string>
     <string name="related_article_summary">Что происходит при 6:6, как считают очки и кто подаёт.</string>

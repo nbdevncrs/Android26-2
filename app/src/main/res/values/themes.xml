@@ -4,6 +4,6 @@
     <style name="ArticleToolbarTitle">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textColor">@color/article_text_secondary</item>
     </style>
 </resources>
