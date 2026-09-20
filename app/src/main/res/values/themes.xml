@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.DroidPractice1" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Tennis" parent="android:Theme.Material.Light.NoActionBar" />
     <style name="ArticleToolbarTitle">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">14sp</item>

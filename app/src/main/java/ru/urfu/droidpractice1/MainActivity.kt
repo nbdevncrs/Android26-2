@@ -1,19 +1,17 @@
 package ru.urfu.droidpractice1
 
-import android.content.Intent
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import ru.urfu.droidpractice1.content.MainActivityScreen
+import ru.urfu.droidpractice1.ui.article.ArticleScreen
 import ru.urfu.droidpractice1.model.ArticleVote
 
-class MainActivity : ComponentActivity() {
+class MainActivity : LifecycleLoggingActivity() {
     private var vote by mutableStateOf(ArticleVote.NONE)
     private var secondVote by mutableStateOf(ArticleVote.NONE)
     private var isFirstArticleRead by mutableStateOf(false)
@@ -36,7 +34,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(LIFECYCLE_TAG, "onCreate")
         vote = ArticleVote.fromName(
             savedInstanceState?.getString(STATE_VOTE) ?: intent.getStringExtra(EXTRA_VOTE)
         )
@@ -50,7 +47,7 @@ class MainActivity : ComponentActivity() {
             ?: intent.getBooleanExtra(SecondActivity.EXTRA_IS_READ, false)
         publishResult()
         setContent {
-            MainActivityScreen(
+            ArticleScreen(
                 vote = vote,
                 onVoteChange = {
                     vote = it
@@ -81,47 +78,17 @@ class MainActivity : ComponentActivity() {
         super.onSaveInstanceState(outState)
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.d(LIFECYCLE_TAG, "onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(LIFECYCLE_TAG, "onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(LIFECYCLE_TAG, "onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(LIFECYCLE_TAG, "onStop")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d(LIFECYCLE_TAG, "onRestart")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(LIFECYCLE_TAG, "onDestroy")
-    }
-
     private fun shareArticle() {
         val articleText = listOf(
-            R.string.article_headline,
-            R.string.article_intro,
-            R.string.article_section_game,
-            R.string.article_game_text,
-            R.string.article_section_set,
-            R.string.article_set_text,
-            R.string.article_section_match,
-            R.string.article_match_text,
-            R.string.article_tiebreak_note
+            R.string.first_article_headline,
+            R.string.first_article_intro,
+            R.string.first_article_section_game,
+            R.string.first_article_game_text,
+            R.string.first_article_section_set,
+            R.string.first_article_set_text,
+            R.string.first_article_section_match,
+            R.string.first_article_match_text,
+            R.string.first_article_tiebreak_note
         ).joinToString("\n\n") { getString(it) }
 
         val sendIntent = Intent(Intent.ACTION_SEND).apply {
@@ -145,7 +112,6 @@ class MainActivity : ComponentActivity() {
     companion object {
         const val EXTRA_VOTE = "ru.urfu.droidpractice1.extra.VOTE"
         const val EXTRA_IS_READ = "ru.urfu.droidpractice1.extra.FIRST_IS_READ"
-        const val LIFECYCLE_TAG = "MainActivityLifecycle"
         private const val STATE_VOTE = "article_vote"
         private const val STATE_SECOND_VOTE = "second_article_vote"
         private const val STATE_FIRST_ARTICLE_READ = "first_article_read"

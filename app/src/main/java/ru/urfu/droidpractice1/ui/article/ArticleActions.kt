@@ -1,4 +1,4 @@
-package ru.urfu.droidpractice1.content
+package ru.urfu.droidpractice1.ui.article
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement

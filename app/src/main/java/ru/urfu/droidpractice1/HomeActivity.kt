@@ -1,17 +1,15 @@
 package ru.urfu.droidpractice1
 
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import ru.urfu.droidpractice1.content.home.HomeScreen
+import ru.urfu.droidpractice1.ui.home.HomeScreen
 import ru.urfu.droidpractice1.model.ArticleVote
 
-class HomeActivity : ComponentActivity() {
+class HomeActivity : LifecycleLoggingActivity() {
     private var firstVote by mutableStateOf(ArticleVote.NONE)
     private var secondVote by mutableStateOf(ArticleVote.NONE)
     private var isFirstArticleRead by mutableStateOf(false)
@@ -48,7 +46,6 @@ class HomeActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(LIFECYCLE_TAG, "onCreate")
         firstVote = ArticleVote.fromName(savedInstanceState?.getString(STATE_FIRST_VOTE))
         secondVote = ArticleVote.fromName(savedInstanceState?.getString(STATE_SECOND_VOTE))
         isFirstArticleRead = savedInstanceState?.getBoolean(STATE_FIRST_ARTICLE_READ) ?: false
@@ -86,38 +83,7 @@ class HomeActivity : ComponentActivity() {
         super.onSaveInstanceState(outState)
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.d(LIFECYCLE_TAG, "onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(LIFECYCLE_TAG, "onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(LIFECYCLE_TAG, "onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(LIFECYCLE_TAG, "onStop")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d(LIFECYCLE_TAG, "onRestart")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(LIFECYCLE_TAG, "onDestroy")
-    }
-
     private companion object {
-        const val LIFECYCLE_TAG = "HomeActivityLifecycle"
         const val STATE_FIRST_VOTE = "first_article_vote"
         const val STATE_SECOND_VOTE = "second_article_vote"
         const val STATE_FIRST_ARTICLE_READ = "first_article_read"

@@ -1,4 +1,4 @@
-package ru.urfu.droidpractice1.content.home
+package ru.urfu.droidpractice1.ui.home
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -28,7 +28,7 @@ import coil.compose.AsyncImage
 import ru.urfu.droidpractice1.R
 
 @Composable
-internal fun ArticlePreviewCard(
+internal fun ArticleCard(
     @StringRes label: Int,
     @StringRes title: Int,
     @StringRes summary: Int,

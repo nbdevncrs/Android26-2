@@ -1,4 +1,4 @@
-package ru.urfu.droidpractice1.content
+package ru.urfu.droidpractice1.ui.article
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
@@ -19,7 +19,7 @@ import coil.compose.AsyncImage
 import ru.urfu.droidpractice1.R
 
 @Composable
-internal fun ArticleContent() {
+internal fun ArticleBody() {
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         Text(
             text = stringResource(R.string.first_article_name).uppercase(),
@@ -27,35 +27,35 @@ internal fun ArticleContent() {
             color = colorResource(R.color.article_accent)
         )
         Text(
-            text = stringResource(R.string.article_headline),
+            text = stringResource(R.string.first_article_headline),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             color = colorResource(R.color.article_text_primary)
         )
         Text(
-            text = stringResource(R.string.article_intro),
+            text = stringResource(R.string.first_article_intro),
             style = MaterialTheme.typography.bodyLarge,
             color = colorResource(R.color.article_text_secondary)
         )
         AsyncImage(
             model = R.drawable.tennis_match,
-            contentDescription = stringResource(R.string.article_image_description),
+            contentDescription = stringResource(R.string.first_article_image_description),
             modifier = Modifier
                 .fillMaxWidth()
                 .height(220.dp),
             contentScale = ContentScale.Crop
         )
         Text(
-            text = stringResource(R.string.article_image_caption),
+            text = stringResource(R.string.first_article_image_caption),
             style = MaterialTheme.typography.bodySmall,
             color = colorResource(R.color.article_text_secondary)
         )
-        ArticleSection(R.string.article_section_game, R.string.article_game_text)
-        ArticleSection(R.string.article_section_set, R.string.article_set_text)
-        ArticleSection(R.string.article_section_match, R.string.article_match_text)
+        ArticleSection(R.string.first_article_section_game, R.string.first_article_game_text)
+        ArticleSection(R.string.first_article_section_set, R.string.first_article_set_text)
+        ArticleSection(R.string.first_article_section_match, R.string.first_article_match_text)
         Spacer(Modifier.height(4.dp))
         Text(
-            text = stringResource(R.string.article_tiebreak_note),
+            text = stringResource(R.string.first_article_tiebreak_note),
             style = MaterialTheme.typography.bodyLarge,
             color = colorResource(R.color.article_text_primary)
         )

@@ -1,4 +1,4 @@
-package ru.urfu.droidpractice1.content
+package ru.urfu.droidpractice1.ui.article
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import ru.urfu.droidpractice1.R
 
 @Composable
-internal fun RelatedArticleLink(isRead: Boolean, onOpen: () -> Unit) {
+internal fun NextArticleCard(isRead: Boolean, onOpen: () -> Unit) {
     val shape = RoundedCornerShape(20.dp)
 
     Column(

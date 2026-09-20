@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package ru.urfu.droidpractice1.content
+package ru.urfu.droidpractice1.ui.article
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,10 +25,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.urfu.droidpractice1.R
 import ru.urfu.droidpractice1.model.ArticleVote
-import ru.urfu.droidpractice1.ui.theme.DroidPractice1Theme
+import ru.urfu.droidpractice1.ui.theme.TennisTheme
 
 @Composable
-fun MainActivityScreen(
+fun ArticleScreen(
     vote: ArticleVote,
     onVoteChange: (ArticleVote) -> Unit,
     isFirstArticleRead: Boolean,
@@ -38,14 +38,14 @@ fun MainActivityScreen(
     onShareArticle: () -> Unit,
     onOpenSecondArticle: () -> Unit
 ) {
-    DroidPractice1Theme {
+    TennisTheme {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             topBar = {
                 TopAppBar(
                     title = {
                         Text(
-                            text = stringResource(R.string.article_title),
+                            text = stringResource(R.string.first_article_toolbar_title),
                             style = MaterialTheme.typography.titleSmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -69,7 +69,7 @@ fun MainActivityScreen(
                     .padding(horizontal = 20.dp, vertical = 24.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                ArticleContent()
+                ArticleBody()
                 Spacer(Modifier.height(8.dp))
                 ArticleActions(
                     vote = vote,
@@ -79,7 +79,7 @@ fun MainActivityScreen(
                     onShareArticle = onShareArticle
                 )
                 Spacer(Modifier.height(8.dp))
-                RelatedArticleLink(
+                NextArticleCard(
                     isRead = isSecondArticleRead,
                     onOpen = onOpenSecondArticle
                 )
@@ -90,8 +90,8 @@ fun MainActivityScreen(
 
 @Preview(showBackground = true)
 @Composable
-private fun MainScreenPreview() {
-    MainActivityScreen(
+private fun ArticleScreenPreview() {
+    ArticleScreen(
         vote = ArticleVote.NONE,
         onVoteChange = {},
         isFirstArticleRead = false,

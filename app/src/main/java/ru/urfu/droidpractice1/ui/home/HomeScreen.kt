@@ -1,4 +1,4 @@
-package ru.urfu.droidpractice1.content.home
+package ru.urfu.droidpractice1.ui.home
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -18,13 +18,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.urfu.droidpractice1.R
-import ru.urfu.droidpractice1.ui.theme.DroidPractice1Theme
+import ru.urfu.droidpractice1.ui.theme.TennisTheme
 
 @Composable
 fun HomeScreen(
@@ -33,7 +34,7 @@ fun HomeScreen(
     onOpenFirstArticle: () -> Unit,
     onOpenSecondArticle: () -> Unit
 ) {
-    DroidPractice1Theme {
+    TennisTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
             Column(
                 modifier = Modifier
@@ -49,7 +50,7 @@ fun HomeScreen(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(top = 8.dp)
                 )
-                ArticlePreviewCard(
+                ArticleCard(
                     label = R.string.home_first_article_label,
                     title = R.string.first_article_name,
                     summary = R.string.home_first_summary,
@@ -60,7 +61,7 @@ fun HomeScreen(
                     ),
                     onClick = onOpenFirstArticle
                 )
-                ArticlePreviewCard(
+                ArticleCard(
                     label = R.string.home_second_article_label,
                     title = R.string.second_article_name,
                     summary = R.string.home_second_summary,
@@ -89,7 +90,7 @@ private fun HomeHeader() {
             drawCircle(
                 color = Color(0x44D9F261),
                 radius = 105.dp.toPx(),
-                center = androidx.compose.ui.geometry.Offset(size.width * 0.94f, size.height * 0.15f)
+                center = Offset(size.width * 0.94f, size.height * 0.15f)
             )
         }
         Column(

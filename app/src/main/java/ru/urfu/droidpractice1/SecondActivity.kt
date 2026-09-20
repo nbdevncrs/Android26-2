@@ -4,13 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.ComponentActivity
 import coil.load
 import ru.urfu.droidpractice1.databinding.ActivitySecondBinding
 import ru.urfu.droidpractice1.model.ArticleVote
 
-class SecondActivity : ComponentActivity() {
+class SecondActivity : LifecycleLoggingActivity() {
 
     private lateinit var binding: ActivitySecondBinding
     private var vote = ArticleVote.NONE
@@ -18,7 +16,6 @@ class SecondActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(LIFECYCLE_TAG, "onCreate")
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -45,36 +42,6 @@ class SecondActivity : ComponentActivity() {
         outState.putString(STATE_VOTE, vote.name)
         outState.putBoolean(STATE_IS_READ, isRead)
         super.onSaveInstanceState(outState)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d(LIFECYCLE_TAG, "onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(LIFECYCLE_TAG, "onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(LIFECYCLE_TAG, "onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(LIFECYCLE_TAG, "onStop")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d(LIFECYCLE_TAG, "onRestart")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(LIFECYCLE_TAG, "onDestroy")
     }
 
     private fun changeVote(selection: ArticleVote) {
@@ -110,7 +77,6 @@ class SecondActivity : ComponentActivity() {
     }
 
     companion object {
-        private const val LIFECYCLE_TAG = "SecondActivityLifecycle"
         const val EXTRA_IS_READ = "ru.urfu.droidpractice1.extra.IS_READ"
         const val EXTRA_VOTE = "ru.urfu.droidpractice1.extra.SECOND_VOTE"
         private const val STATE_IS_READ = "is_read"
